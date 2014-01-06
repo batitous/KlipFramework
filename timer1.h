@@ -20,17 +20,30 @@
  IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
  CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
-#ifndef KLIP_FRAMEWORK_DEBUG_H
-#define KLIP_FRAMEWORK_DEBUG_H
+#ifndef KLIP_FRAMEWORK_TIMER1_H
+#define KLIP_FRAMEWORK_TIMER1_H
 
 #ifdef	__cplusplus
 extern "C" {
 #endif
 
-    
-#define ERROR(str)  kPrint("ERROR in %s at line %d : %s!\r\n", __FILE__, __LINE__, str)
+typedef enum _timer_prescaler_
+{
+	PRESCALER_1 	= 0x0,
+	PRESCALER_8 	= 0x1,
+	PRESCALER_64 	= 0x3,
+	PRESCALER_256 	= 0x4,
+	PRESCALER_1024	= 0x5
+} TIMER_PRESCALER;
 
-#define LOG(str) 	kPrint str
+#define US_TO_TICK(u, prescaler)    (((u) * F_CPU) / (1000000UL * prescaler))
+
+typedef void (*TimerIrqCallback)(void);
+
+
+extern void initTimer1(unsigned long timeInUs, TIMER_PRESCALER prescaler, TimerIrqCallback callback);
+
+extern unsigned int getTimer1Counter(void);
 
 
 #ifdef	__cplusplus
@@ -38,5 +51,3 @@ extern "C" {
 #endif
 
 #endif
-
-

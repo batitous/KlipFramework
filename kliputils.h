@@ -34,15 +34,15 @@ extern "C" {
 #define BIT(position) 		(1<<(position))
 
 // set 1 into register at position
-#define SETBIT(reg,position)    reg |= (1<<((UInt32)position))
+#define SETBIT(reg,position)    reg |= (1<<((unsigned int)position))
 
 // clear one bit of register at position
-#define CLRBIT(reg,position)  reg &= ~(1<<((UInt32)position))
+#define CLRBIT(reg,position)  reg &= ~(1<<((unsigned int)position))
 
 // clear multiple bits of register
 #define CLRBITS(reg,mask)     reg &= ~(mask)
 
-// like printf
+// like printf, for embedded system
 extern void kPrint(const char*	str,	...);
 
 #ifdef	__cplusplus

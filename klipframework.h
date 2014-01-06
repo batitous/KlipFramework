@@ -26,6 +26,7 @@
 
 #include "debug.h"
 #include "kliputils.h"
+#include "timer1.h"
 #include "virtualtimer.h"
 #include "fsm.h"
 
