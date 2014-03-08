@@ -27,7 +27,7 @@
 //----------------------------- private functions & variables
 
 
-static volatile unsigned int timer1Counter;
+static volatile uint32_t timer1Counter;
 
 TimerIrqCallback timer1IrqCallback;
 
@@ -39,9 +39,10 @@ ISR (TIMER1_COMPA_vect)
 	timer1IrqCallback();
 }
 
-unsigned int getPrescalerDiv(TIMER_PRESCALER prescaler)
+uint32_t getPrescalerDiv(TIMER_PRESCALER prescaler)
 {
-	unsigned int div = 1;
+	uint32_t div = 1;
+	
 	switch(prescaler)
 	{
 		default :
@@ -69,7 +70,7 @@ unsigned int getPrescalerDiv(TIMER_PRESCALER prescaler)
 //----------------------------- public functions
 
 
-void initTimer1(unsigned long timeInUs, TIMER_PRESCALER prescaler, TimerIrqCallback callback)
+void initTimer1(uint32_t timeInUs, TIMER_PRESCALER prescaler, TimerIrqCallback callback)
 {
 	timer1Counter = 0;
 	timer1IrqCallback = callback;
@@ -91,9 +92,9 @@ void initTimer1(unsigned long timeInUs, TIMER_PRESCALER prescaler, TimerIrqCallb
 	OCR1A = US_TO_TICK(timeInUs, getPrescalerDiv(prescaler));
 }
 
-unsigned int getTimer1Counter(void)
+uint32_t getTimer1Counter(void)
 {
-	unsigned int temp;
+	uint32_t temp;
 
 	//TODO protect it ?	
 	temp = timer1Counter;

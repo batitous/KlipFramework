@@ -52,13 +52,13 @@ typedef void (*TimerIrqCallback)(void);
  * @param prescaler 	Prescaler
  * @param callback 		Callback to your code, call in the IRQ
  */
-extern void initTimer1(unsigned long timeInUs, TIMER_PRESCALER prescaler, TimerIrqCallback callback);
+extern void initTimer1(uint32_t timeInUs, TIMER_PRESCALER prescaler, TimerIrqCallback callback);
 
 
 /**
  * @return Get timer1 counter
  */
-extern unsigned int getTimer1Counter(void);
+extern uint32_t getTimer1Counter(void);
 
 
 #ifdef	__cplusplus
