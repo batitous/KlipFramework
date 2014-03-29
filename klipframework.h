@@ -20,15 +20,15 @@
  IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
  CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
-#ifndef     KLIP_FRAMEWORK_H
+#ifndef    KLIP_FRAMEWORK_H
 #define    KLIP_FRAMEWORK_H
 
 
-#include "debug.h"
-#include "kliputils.h"
-#include "timer1.h"
-#include "virtualtimer.h"
-#include "fsm.h"
+#include "include/debug.h"
+#include "include/kliputils.h"
+#include "include/timer1.h"
+#include "include/virtualtimer.h"
+#include "include/fsm.h"
 
 
 
