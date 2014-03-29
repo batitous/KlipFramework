@@ -23,6 +23,10 @@
 #ifndef KLIP_FRAMEWORK_TIMER1_H
 #define KLIP_FRAMEWORK_TIMER1_H
 
+/** @file Hardware timer 1 of Arduino Leonardo
+ *
+ */
+
 #ifdef	__cplusplus
 extern "C" {
 #endif
