@@ -23,7 +23,9 @@
 #ifndef KLIP_FRAMEWORK_FSM_H
 #define KLIP_FRAMEWORK_FSM_H
 
+
 typedef void (*FsmCall)(void);
+
 
 /** Finite State Machine
 */
@@ -72,11 +74,11 @@ public:
     bool isStateInitialized(void);
 
 private:
-    int mCurrent;
-    int mOld;
-    bool mInit;
-    FsmCall mInitCall;
-    FsmCall mCall;    
+    int     mCurrent;   /**< Current state of the FSM */
+    int     mOld;       /**< Previous state of the FSM */
+    bool    mInit;      /**< Is the current state of the FSM initialized ? */
+    FsmCall mInitCall;  /**< Initialization's code */
+    FsmCall mCall;      /**< State's code */
 };
 
 

@@ -1,7 +1,7 @@
 /*
  The MIT License (MIT)
  
- Copyright (c) 2013 Baptiste Burles, Kliplab
+ Copyright (c) 2014 Baptiste Burles, Kliplab
  
  Permission is hereby granted, free of charge, to any person obtaining a copy of
  this software and associated documentation files (the "Software"), to deal in
@@ -20,41 +20,33 @@
  IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
  CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
-#ifndef KLIP_FRAMEWORK_UTILS_H
-#define KLIP_FRAMEWORK_UTILS_H
 
-#ifdef	__cplusplus
-extern "C" {
-#endif
+uint32_t get4FromBuffer(byte *buffer)
+{
+	uint32_t result = 0;
+	uint32_t temp;
 
-// set value at specified position
-#define BITS(position,value) 	((value)<<(position))
+	temp = buffer[0];
+	result =  (temp << 24UL);
 
-// set 1 at specified position
-#define BIT(position) 		(1<<(position))
+	temp = buffer[1];
+	temp = (temp << 16UL);
+	result = result | temp;
 
-// set 1 into register at position
-#define SETBIT(reg,position)    reg |= (1<<((unsigned int)position))
+	temp = buffer[2];
+	temp = (temp << 8UL);
+	result = result | temp;
 
-// clear one bit of register at position
-#define CLRBIT(reg,position)  reg &= ~(1<<((unsigned int)position))
+	temp = buffer[3];
+	result = result | temp;
 
-// clear multiple bits of register
-#define CLRBITS(reg,mask)     reg &= ~(mask)
-
-// like printf, for embedded system
-extern void kPrint(const char*	str,	...);
-
-
-// read / write 32 bits from a byte stream
-extern uint32_t get4FromBuffer(byte *buffer);
-extern void set4ToBuffer(byte *buffer, uint32_t result);
-
-
-
-#ifdef	__cplusplus
+	return result;
 }
-#endif
 
-#endif
-
+void set4ToBuffer(byte *buffer, uint32_t result)
+{
+	buffer[0] = (result>>24UL);
+	buffer[1] = (result>>16UL);
+	buffer[2] = (result>>8UL);
+	buffer[3] = (result);
+}

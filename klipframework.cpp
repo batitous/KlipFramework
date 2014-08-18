@@ -20,41 +20,15 @@
  IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
  CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
-#ifndef KLIP_FRAMEWORK_UTILS_H
-#define KLIP_FRAMEWORK_UTILS_H
-
-#ifdef	__cplusplus
-extern "C" {
-#endif
-
-// set value at specified position
-#define BITS(position,value) 	((value)<<(position))
-
-// set 1 at specified position
-#define BIT(position) 		(1<<(position))
-
-// set 1 into register at position
-#define SETBIT(reg,position)    reg |= (1<<((unsigned int)position))
-
-// clear one bit of register at position
-#define CLRBIT(reg,position)  reg &= ~(1<<((unsigned int)position))
-
-// clear multiple bits of register
-#define CLRBITS(reg,mask)     reg &= ~(mask)
-
-// like printf, for embedded system
-extern void kPrint(const char*	str,	...);
-
-
-// read / write 32 bits from a byte stream
-extern uint32_t get4FromBuffer(byte *buffer);
-extern void set4ToBuffer(byte *buffer, uint32_t result);
 
 
 
-#ifdef	__cplusplus
-}
-#endif
+#include "source/fsm.cpp"
+#include "source/virtualtimer.cpp"
+#include "source/timer1.cpp"
+#include "source/kprintf.cpp"
+#include "source/kliputils.cpp"
 
-#endif
+
+
 

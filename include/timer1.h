@@ -54,7 +54,7 @@ typedef void (*TimerIrqCallback)(void);
  *
  * @param timeInUs		Time in microseconds, when IRQ will be fired
  * @param prescaler 	Prescaler
- * @param callback 		Callback to your code, call in the IRQ
+ * @param callback 		Callback to your code, called in the IRQ
  */
 extern void initTimer1(uint32_t timeInUs, TIMER_PRESCALER prescaler, TimerIrqCallback callback);
 
