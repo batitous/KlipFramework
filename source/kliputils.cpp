@@ -21,28 +21,20 @@
  CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
-static unsigned int z1 = 12345, z2 = 12345, z3 = 12345, z4 = 12345;
+
+static uint32_t m_z = 12434 ;
+static uint32_t m_w = 33254;
 
 void setRandomSeed(uint32_t s)
 {
-	z1 = s;
-	z2 = s;
-	z3 = s;
-	z4 = s;
+	m_z = s;
 }
 
 uint32_t getRandom(void)
 {
-   unsigned int b;
-   b  = ((z1 << 6) ^ z1) >> 13;
-   z1 = ((z1 & 4294967294U) << 18) ^ b;
-   b  = ((z2 << 2) ^ z2) >> 27; 
-   z2 = ((z2 & 4294967288U) << 2) ^ b;
-   b  = ((z3 << 13) ^ z3) >> 21;
-   z3 = ((z3 & 4294967280U) << 7) ^ b;
-   b  = ((z4 << 3) ^ z4) >> 12;
-   z4 = ((z4 & 4294967168U) << 13) ^ b;
-   return (z1 ^ z2 ^ z3 ^ z4);
+    m_z = 36969 * (m_z & 65535) + (m_z >>16);
+    m_w = 18000 * (m_w & 65535) + (m_w >>16);
+    return ((m_z <<16) + m_w);
 }
 
 int32_t getRandomBetween(int32_t lowBoundary, int32_t highBoundary)
