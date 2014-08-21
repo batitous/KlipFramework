@@ -46,6 +46,13 @@ extern "C" {
 extern void kPrint(const char*	str,	...);
 
 
+// fast random
+extern void setRandomSeed(uint32_t s);
+extern uint32_t getRandom(void);
+extern int32_t getRandomBetween(int32_t lowBoundary, int32_t highBoundary);
+
+
+
 // read / write 32 bits from a byte stream
 extern uint32_t get4FromBuffer(byte *buffer);
 extern void set4ToBuffer(byte *buffer, uint32_t result);
