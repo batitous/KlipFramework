@@ -22,7 +22,7 @@
 */
 
 #include <Arduino.h>
-#include "klipframework.h"
+#include "../klipframework.h"
 
 VirtualTimer::VirtualTimer()
 {

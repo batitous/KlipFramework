@@ -23,7 +23,7 @@
 #include <Arduino.h>
 #include <stdarg.h>
 
-#include "klipframework.h"
+#include "../klipframework.h"
 
 void xputc(unsigned char c)
 {
