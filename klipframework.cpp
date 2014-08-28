@@ -25,7 +25,11 @@
 
 #include "source/fsm.cpp"
 #include "source/virtualtimer.cpp"
-#include "source/timer1.cpp"
+
+#if defined (__AVR__)
+#	include "source/timer1.cpp"
+#endif
+
 #include "source/kprintf.cpp"
 #include "source/kliputils.cpp"
 #include "source/queue.cpp"

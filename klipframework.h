@@ -26,7 +26,10 @@
 
 #include "include/debug.h"
 #include "include/kliputils.h"
-#include "include/timer1.h"
+#if defined (__AVR__)
+#	include "include/timer1.h"
+#endif
+
 #include "include/virtualtimer.h"
 #include "include/fsm.h"
 #include "include/queue.h"
