@@ -28,6 +28,7 @@
 #include "source/timer1.cpp"
 #include "source/kprintf.cpp"
 #include "source/kliputils.cpp"
+#include "source/queue.cpp"
 
 
 

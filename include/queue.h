@@ -26,7 +26,7 @@
 class Queue
 {
 public:
-    Queue(uint8_t pBuffer, uint16_t sizeBuffer);
+    Queue(uint8_t * pBuffer, uint16_t sizeBuffer);
 
     bool write(uint8_t data);
 
