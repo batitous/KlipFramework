@@ -25,10 +25,30 @@
 
 Queue::Queue(uint8_t * pBuffer, uint16_t size)
 {
-    mHead = 0;
-    mTail = 0;
+    reset();
     mSize = size;
     mPending = pBuffer;
+}
+
+void Queue::reset()
+{
+    mHead = 0;
+    mTail = 0;
+}
+
+int Queue::available()
+{
+    if (mHead == mTail)
+    {
+        return 0;
+    }
+
+    if (mHead <= mTail)
+    {
+        return mTail - mHead;
+    }
+
+    return (mSize - mTail + mHead);
 }
 
 bool Queue::write(uint8_t data)

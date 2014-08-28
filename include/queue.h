@@ -28,6 +28,10 @@ class Queue
 public:
     Queue(uint8_t * pBuffer, uint16_t sizeBuffer);
 
+    void reset();
+
+    int available();
+
     bool write(uint8_t data);
 
     bool read(uint8_t * data);
