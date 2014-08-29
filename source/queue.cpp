@@ -53,7 +53,7 @@ int Queue::available()
 
 bool Queue::write(uint8_t data)
 {
-    uint32_t size = mSize-1;
+    uint16_t size = mSize-1;
     if ( ((mTail+1) & (size)) == ((mHead) & (size)) )
     {
         return false;
