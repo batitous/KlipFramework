@@ -1,7 +1,7 @@
 /*
  The MIT License (MIT)
  
- Copyright (c) 2013 Baptiste Burles, Kliplab
+ Copyright (c) 2014 Baptiste Burles, Kliplab
  
  Permission is hereby granted, free of charge, to any person obtaining a copy of
  this software and associated documentation files (the "Software"), to deal in
@@ -20,22 +20,38 @@
  IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
  CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
-#ifndef    KLIP_FRAMEWORK_H
-#define    KLIP_FRAMEWORK_H
+#ifndef    KLIP_FRAMEWORK_BYTESTREAM_H
+#define    KLIP_FRAMEWORK_BYTESTREAM_H
 
+// A stream of bytes
+class ByteStream
+{
+public:
+    
+    ByteStream(uint8_t * pBuffer, uint32_t size);
+    
+    void reset();
+    
+    bool isEnd();
+    
+    uint32_t size();
+    
+    void write8Bits(uint8_t data);
+    void write16Bits(uint16_t data);
+    void write32Bits(uint32_t data);
+    void writeRawBytes(uint8_t * input, uint32_t size);
+    
+    uint8_t read8Bits();
+    uint16_t read16Bits();
+    uint32_t read32Bits();
+    void readRawBytes(uint8_t * output, uint32_t size);
+    
 
-#include "include/debug.h"
-#include "include/kliputils.h"
-#if defined (__AVR__)
-#	include "include/timer1.h"
+private:
+    uint8_t *   mBuffer;
+    uint8_t *   mCurrent;
+    uint8_t *   mEnd;
+};
+
 #endif
-
-#include "include/virtualtimer.h"
-#include "include/fsm.h"
-#include "include/queue.h"
-#include "include/bytestream.h"
-
-
-
-#endif	/* KLIP_FRAMEWORK_H */
 

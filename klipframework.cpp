@@ -33,6 +33,7 @@
 #include "source/kprintf.cpp"
 #include "source/kliputils.cpp"
 #include "source/queue.cpp"
+#include "source/bytestream.cpp"
 
 
 
