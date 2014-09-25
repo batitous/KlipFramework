@@ -7,6 +7,11 @@
 
 VirtualTimer timerTest;
 
+uint8_t queueBuffer[8];
+
+Queue queueTest(queueBuffer,8);
+
+
 void setup()
 {
 	Serial.begin(115200);
