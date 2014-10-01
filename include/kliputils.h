@@ -53,11 +53,13 @@ extern int32_t getRandomBetween(int32_t lowBoundary, int32_t highBoundary);
 
 
 
-// read / write 32 bits from a byte stream
-extern uint32_t get4FromBuffer(byte *buffer);
-extern void set4ToBuffer(byte *buffer, uint32_t result);
+// read / write 32 bits from a buffer
+extern uint32_t read32bitsFromBuffer(uint8_t *buffer);
+extern void write32bitsToBuffer(uint8_t *buffer, uint32_t result);
 
-
+// read / write 16 bits from a buffer
+extern void write16bitsToBuffer(uint8_t * buffer, uint16_t integer);
+extern uint16_t read16bitsFromBuffer(const uint8_t * buffer);
 
 #ifdef	__cplusplus
 }

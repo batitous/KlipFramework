@@ -42,7 +42,7 @@ int32_t getRandomBetween(int32_t lowBoundary, int32_t highBoundary)
 	return (getRandom() % (highBoundary - lowBoundary + 1) + lowBoundary);
 }
 
-uint32_t get4FromBuffer(byte *buffer)
+uint32_t read32bitsFromBuffer(uint8_t *buffer)
 {
 	uint32_t result = 0;
 	uint32_t temp;
@@ -64,10 +64,23 @@ uint32_t get4FromBuffer(byte *buffer)
 	return result;
 }
 
-void set4ToBuffer(byte *buffer, uint32_t result)
+void write32bitsToBuffer(uint8_t *buffer, uint32_t result)
 {
 	buffer[0] = (result>>24UL);
 	buffer[1] = (result>>16UL);
 	buffer[2] = (result>>8UL);
 	buffer[3] = (result);
+}
+
+void write16bitsToBuffer(uint8_t * buffer, uint16_t integer)
+{
+    buffer[0] = (uint8_t)(integer);
+    buffer[1] = (integer>>8UL);
+}
+
+uint16_t read16bitsFromBuffer(const uint8_t * buffer)
+{
+    uint16_t integer = (buffer[1]<<8UL)| (buffer[0]);
+    
+    return integer;
 }
