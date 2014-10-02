@@ -44,32 +44,30 @@ int32_t getRandomBetween(int32_t lowBoundary, int32_t highBoundary)
 
 uint32_t read32bitsFromBuffer(uint8_t *buffer)
 {
-	uint32_t result = 0;
-	uint32_t temp;
-
-	temp = buffer[0];
-	result =  (temp << 24UL);
-
-	temp = buffer[1];
-	temp = (temp << 16UL);
-	result = result | temp;
-
-	temp = buffer[2];
-	temp = (temp << 8UL);
-	result = result | temp;
-
-	temp = buffer[3];
-	result = result | temp;
-
-	return result;
+	uint32_t integer;
+    uint32_t temp;
+    
+    temp = buffer[3];
+    integer = temp << 24UL;
+    
+    temp = buffer[2];
+    integer = (temp << 16UL) | integer;
+    
+    temp = buffer[1];
+    integer = (temp << 8UL) | integer;
+    
+    temp = buffer[0];
+    integer = (temp) | integer;
+    
+    return integer;
 }
 
 void write32bitsToBuffer(uint8_t *buffer, uint32_t result)
 {
-	buffer[0] = (result>>24UL);
-	buffer[1] = (result>>16UL);
-	buffer[2] = (result>>8UL);
-	buffer[3] = (result);
+	buffer[0] = (uint8_t)(integer & 0xFF);
+    buffer[1] = (uint8_t)((integer>>8UL) & 0xFF);
+    buffer[2] = (uint8_t)((integer>>16UL) & 0xFF);
+    buffer[3] = (uint8_t)((integer>>24UL) & 0xFF);
 }
 
 void write16bitsToBuffer(uint8_t * buffer, uint16_t integer)
