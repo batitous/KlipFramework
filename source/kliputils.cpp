@@ -62,7 +62,7 @@ uint32_t read32bitsFromBuffer(uint8_t *buffer)
     return integer;
 }
 
-void write32bitsToBuffer(uint8_t *buffer, uint32_t result)
+void write32bitsToBuffer(uint8_t *buffer, uint32_t integer)
 {
 	buffer[0] = (uint8_t)(integer & 0xFF);
     buffer[1] = (uint8_t)((integer>>8UL) & 0xFF);
