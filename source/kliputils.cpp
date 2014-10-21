@@ -82,3 +82,10 @@ uint16_t read16bitsFromBuffer(const uint8_t * buffer)
     
     return integer;
 }
+
+int16_t read16bitsSignedFromBuffer(const uint8_t * buffer)
+{
+    int16_t integer = (buffer[1]<<8UL)| (buffer[0]);
+    
+    return integer;
+}

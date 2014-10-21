@@ -60,6 +60,7 @@ extern void write32bitsToBuffer(uint8_t *buffer, uint32_t result);
 // read / write 16 bits from a buffer
 extern void write16bitsToBuffer(uint8_t * buffer, uint16_t integer);
 extern uint16_t read16bitsFromBuffer(const uint8_t * buffer);
+extern int16_t read16bitsSignedFromBuffer(const uint8_t * buffer);
 
 #ifdef	__cplusplus
 }
