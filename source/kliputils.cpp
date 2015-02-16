@@ -89,3 +89,8 @@ int16_t read16bitsSignedFromBuffer(const uint8_t * buffer)
     
     return integer;
 }
+
+float mapFloat(const float x, const float in_min, const float in_max, const float out_min, const float out_max)
+{
+    return (x - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
+}

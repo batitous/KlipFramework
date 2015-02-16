@@ -52,6 +52,8 @@ extern uint32_t getRandom(void);
 extern int32_t getRandomBetween(int32_t lowBoundary, int32_t highBoundary);
 
 
+// map value on an interval
+float mapFloat(const float x, const float in_min, const float in_max, const float out_min, const float out_max);
 
 // read / write 32 bits from a buffer
 extern uint32_t read32bitsFromBuffer(uint8_t *buffer);
